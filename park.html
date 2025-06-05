@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>소공원</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'BookkMyungjo-Bd';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'BookkMyungjo-Bd', serif;
+      color: #fff;
+      background: url('park.jpg') center top no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      word-break: keep-all;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #000;
+      z-index: 3000;
+      padding: 1.3rem 0;
+    }
+
+    .wrap {
+      width: 1000px;
+      margin: auto;
+    }
+
+    .navbar-container {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo a {
+      font-family: 'BookkMyungjo-Bd', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar a {
+      font-family: 'Orbit', sans-serif;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+    }
+
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 5.5rem;
+      right: 1.5rem;
+      background: #fff;
+      color: #111;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-radius: 4px;
+      z-index: 2500;
+      font-family: 'Orbit', sans-serif;
+    }
+
+    .toggle-btn::after {
+      content: ' ▶';
+      font-size: 0.85rem;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .content {
+      flex: 1;
+      padding: 8vw 5vw;
+      background: rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
+    }
+
+    .title {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+    }
+
+    .poem {
+      font-size: 2.5vw;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+
+    .info-panel {
+      position: fixed;
+      top: 4rem;
+      right: 0;
+      width: 400px;
+      height: calc(100vh - 4rem);
+      background-color: rgba(34, 34, 34, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 2rem 2rem 4rem;
+      box-sizing: border-box;
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+      overflow-y: auto;
+      z-index: 2000;
+      font-family: 'Orbit', sans-serif;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #fff;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .info-panel.open {
+      transform: translateX(0%);
+    }
+
+    .info-panel h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      font-family: 'BookkMyungjo-Bd', serif;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+      font-weight: bold;
+      color: #ccc;
+    }
+
+    .keywords {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .keyword {
+      background-color: #444;
+      padding: 0.4rem 0.8rem;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      color: #eee;
+    }
+
+    .info-panel a {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+
+    .info-panel a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="navbar-container">
+      <div class="logo"><a href="index.html">이원록에서 이육사까지</a></div>
+      <ul class="navbar">
+        <li><a href="timeline.html">연보</a></li>
+        <li><a href="works.html">작품</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <button class="toggle-btn" onclick="togglePanel()">설명 보기</button>
+
+  <div class="container">
+    <div class="content">
+      <div class="wrap">
+        <div class="title">소공원</div>
+        <div class="poem">
+한낮은 햇발이  
+백공작(百孔雀) 꼬리 위에 함북 퍼지고  
+
+그넘에 비둘기 보리밭에 두고 온  
+사랑이 그립다고 근심스레 코고을며  
+
+해오래비 청춘(靑春)을 물가에 흘려 보냈다고  
+쭈그리고 앉아 비를 부르건마는  
+
+흰 오리 떼만 분주히 미끼를 찾아  
+자무락질치는 소리 약간 들리고  
+
+언덕은 잔디밭 파라솔 돌리는 이국소녀(異國少女) 둘  
+해당화(海棠花) 같은 뺨을 돌려 망향가(望鄕歌)도 부른다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-panel" id="infoPanel">
+    <h2>해설</h2>
+    <p>
+      「소공원」은 도시의 공원이라는 일상의 공간에서 다양한 감정과 풍경이 교차하는 시입니다.<br>
+      여름 햇살, 물가, 외국인 소녀, 사랑과 향수 같은 요소들이 복합적으로 그려지며,<br>
+      개인의 회상과 타문화의 감성이 겹쳐진 정서를 보여줍니다.
+    </p>
+
+    <div class="section-title">키워드</div>
+    <div class="keywords">
+      <div class="keyword">#공원</div>
+      <div class="keyword">#사랑</div>
+      <div class="keyword">#회상</div>
+      <div class="keyword">#자연</div>
+      <div class="keyword">#외국소녀</div>
+    </div>
+
+    <div class="section-title">관련 작품</div>
+    <div>
+      <a href="haejosa.html">해조사</a><br>
+      <a href="opium.html">아편</a><br>
+      <a href="silje.html">실제</a>
+    </div>
+  </div>
+
+  <script>
+    function togglePanel() {
+      const panel = document.getElementById("infoPanel");
+      panel.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>

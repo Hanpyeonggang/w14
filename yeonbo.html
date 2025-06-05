@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>연보</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'BookkMyungjo-Bd';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'BookkMyungjo-Bd', serif;
+      color: #fff;
+      background: url('timeline.jpg') center top no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      word-break: keep-all;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #000;
+      z-index: 3000;
+      padding: 1.3rem 0;
+    }
+
+    .wrap {
+      width: 1000px;
+      margin: auto;
+    }
+
+    .navbar-container {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo a {
+      font-family: 'BookkMyungjo-Bd', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar a {
+      font-family: 'Orbit', sans-serif;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+    }
+
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 5.5rem;
+      right: 1.5rem;
+      background: #fff;
+      color: #111;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-radius: 4px;
+      z-index: 2500;
+      font-family: 'Orbit', sans-serif;
+    }
+
+    .toggle-btn::after {
+      content: ' ▶';
+      font-size: 0.85rem;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .content {
+      flex: 1;
+      padding: 8vw 5vw;
+      background: rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
+    }
+
+    .title {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+    }
+
+    .poem {
+      font-size: 2.5vw;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+
+    .info-panel {
+      position: fixed;
+      top: 4rem;
+      right: 0;
+      width: 400px;
+      height: calc(100vh - 4rem);
+      background-color: rgba(34, 34, 34, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 2rem 2rem 4rem;
+      box-sizing: border-box;
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+      overflow-y: auto;
+      z-index: 2000;
+      font-family: 'Orbit', sans-serif;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #fff;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .info-panel.open {
+      transform: translateX(0%);
+    }
+
+    .info-panel h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      font-family: 'BookkMyungjo-Bd', serif;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+      font-weight: bold;
+      color: #ccc;
+    }
+
+    .keywords {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .keyword {
+      background-color: #444;
+      padding: 0.4rem 0.8rem;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      color: #eee;
+    }
+
+    .info-panel a {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+
+    .info-panel a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="navbar-container">
+      <div class="logo"><a href="index.html">이원록에서 이육사까지</a></div>
+      <ul class="navbar">
+        <li><a href="timeline.html">연보</a></li>
+        <li><a href="works.html">작품</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <button class="toggle-btn" onclick="togglePanel()">설명 보기</button>
+
+  <div class="container">
+    <div class="content">
+      <div class="wrap">
+        <div class="title">연보</div>
+        <div class="poem">
+'너는 돌다리목에 줘왔다'던  
+할머니 핀잔이 참이라고 하자  
+
+나는 진정 강(江)언덕 그 마을에  
+버려진 문받이였은지 몰라?  
+
+그러기에 열여덟 새봄은  
+버들피리 곡조에 불어보내고  
+
+첫사랑이 흘러간 항구(港口)의 밤  
+눈물섞어 마신 술 피보다 달더라  
+
+공명이 마다곤들 언제 말이나 했나?  
+바람에 붙여 돌아온 고장도 비고  
+
+서리밟고 걸어간 새벽길 우에  
+간(肝)입만 새하얗게 단풍이 들어  
+
+거미줄만 발목에 걸린다 해도  
+쇠사슬을 잡아맨 듯 무거워졌다  
+
+눈 우에 걸어가면 자욱이 지리라고  
+때로는 설래이며 파람도 불지
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-panel" id="infoPanel">
+    <h2>해설</h2>
+    <p>
+      「연보」는 화자의 과거와 감정을 회상하며, 고향과 첫사랑, 방황, 현실의 무게를 시적으로 풀어낸 작품입니다.<br>
+      시 제목인 ‘연보’는 개인의 연대기를 상징하며, 기억 속 장면들이 시간의 흐름을 따라 감각적으로 전개됩니다.<br>
+      소박하면서도 비유적인 이미지들이 감정을 더욱 뚜렷하게 전달합니다.
+    </p>
+
+    <div class="section-title">키워드</div>
+    <div class="keywords">
+      <div class="keyword">#고향</div>
+      <div class="keyword">#첫사랑</div>
+      <div class="keyword">#연대기</div>
+      <div class="keyword">#회상</div>
+      <div class="keyword">#슬픔</div>
+    </div>
+
+    <div class="section-title">관련 작품</div>
+    <div>
+      <a href="silje.html">실제</a><br>
+      <a href="soseol.html">소공원</a><br>
+      <a href="haejosa.html">해조사</a>
+    </div>
+  </div>
+
+  <script>
+    function togglePanel() {
+      const panel = document.getElementById("infoPanel");
+      panel.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>

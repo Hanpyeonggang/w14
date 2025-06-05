@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>한 개의 별을 노래하자</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'BookkMyungjo-Bd';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'BookkMyungjo-Bd', serif;
+      color: #fff;
+      background: url('star.jpg') center top no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      word-break: keep-all;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #000;
+      z-index: 3000;
+      padding: 1.3rem 0;
+    }
+
+    .wrap {
+      width: 1000px;
+      margin: auto;
+    }
+
+    .navbar-container {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo a {
+      font-family: 'BookkMyungjo-Bd', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar a {
+      font-family: 'Orbit', sans-serif;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+    }
+
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 5.5rem;
+      right: 1.5rem;
+      background: #fff;
+      color: #111;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-radius: 4px;
+      z-index: 2500;
+      font-family: 'Orbit', sans-serif;
+    }
+
+    .toggle-btn::after {
+      content: ' ▶';
+      font-size: 0.85rem;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .content {
+      flex: 1;
+      padding: 8vw 5vw;
+      background: rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
+    }
+
+    .title {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+
+    .poem {
+      font-size: 1.5vw;
+      line-height: 2;
+      white-space: pre-line;
+    }
+
+    .info-panel {
+      position: fixed;
+      top: 4rem;
+      right: 0;
+      width: 400px;
+      height: calc(100vh - 4rem);
+      background-color: rgba(34, 34, 34, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 2rem 2rem 4rem;
+      box-sizing: border-box;
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+      overflow-y: auto;
+      z-index: 2000;
+      font-family: 'Orbit', sans-serif;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #fff;
+    } 
+    .info-panel.open {
+      transform: translateX(0%);
+    }
+
+    .info-panel h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      font-family: 'BookkMyungjo-Bd', serif;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+      font-weight: bold;
+      color: #ccc;
+    }
+
+    .keywords {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .keyword {
+      background-color: #444;
+      padding: 0.4rem 0.8rem;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      color: #eee;
+    }
+
+    .info-panel a {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+
+    .info-panel a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="navbar-container">
+      <div class="logo"><a href="index.html">이원록에서 이육사까지</a></div>
+      <ul class="navbar">
+        <li><a href="timeline.html">연보</a></li>
+        <li><a href="works.html">작품</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <button class="toggle-btn" onclick="togglePanel()">설명 보기</button>
+
+  <div class="container">
+    <div class="content">
+      <div class="wrap">
+        <div class="title">한 개의 별을 노래하자</div>
+        <div class="poem">
+한개의 별을 노래하자 꼭 한 개의 별을
+
+십이성좌(十二星座) 그 숱한 별을 어찌나 노래하겠니
+
+꼭 한 개의 별! 아침 날 때 보고 저녁 들 때도 보는 별
+우리들과 아-주 친(親)하고 그 중 빛나는 별을 노래하자
+아름다운 미래(未來)를 꾸며 볼 동방(東方)의 큰 별을 가지자
+
+한 개의 별을 가지는 건 한 개의 지구(地球)를 갖는 것
+아롱진 설움밖에 잃을 것도 없는 낡은 이 땅에서
+
+한 개의 새로운 지구(地球)를 차지할 오는 날의 기쁜 노래를
+목안에 핏대를 올려가며 마음껏 불러 보자
+
+처녀의 눈동자를 느끼며 돌아가는 군수야업(軍需夜業)의 젊은 동무들
+푸른 샘을 그리는 고달픈 사막(沙漠)의 행상대(行商隊)도 마음을 축여라
+화전(火田)에 돌을 줍는 백성(百姓)들도 옥야천리(沃野里)를 차지하자
+
+다 같이 제멋에 알맞는 풍양(豊穰)한 지구(地球)의 주재자(主宰者)로
+임자 없는 한 개의 별을 가질 노래를 부르자
+
+한 개의 별 한 개의 지구(地球) 단단히 다져진 그 땅 위에
+모든 생산(生産)의 씨를 우리의 손으로 휘뿌려 보자
+앵속(罌粟)처럼 찬란한 열매를 거두는 찬연(餐宴)엔
+예의에 끄림없는 반취(半醉)의 노래라도 불러 보자
+
+염리한 사람들을 다스리는 신(神)이란 항상 거룩합시니
+새 별을 찾아가는 이민들의 그 틈엔 안 끼여 갈 테니
+새로운 지구(地球)엔 단죄(罪) 없는 노래를 진주(眞珠)처럼 흩이자
+
+한개의 별을 노래하자. 다만 한 개의 별일망정
+한 개 또 한 개의 십이성좌(十二星座) 모든 별을 노래하자
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-panel" id="infoPanel">
+    <h2>해설</h2>
+    <p>
+      이육사의 「한 개의 별을 노래하자」는 이상적이고 미래지향적인 세계를 꿈꾸며<br>
+      그 세계를 노래하는 시인의 확고한 의지를 담고 있습니다.<br>
+      ‘한 개의 별’은 곧 새로운 세계, 새로운 희망, 그리고 주체적 주인의식을 상징합니다.<br>
+      노동자, 민중, 이방인의 연대가 이 시의 핵심입니다.
+    </p>
+
+    <div class="section-title">키워드</div>
+    <div class="keywords">
+      <div class="keyword">#별</div>
+      <div class="keyword">#희망</div>
+      <div class="keyword">#연대</div>
+      <div class="keyword">#노동</div>
+      <div class="keyword">#새로운지구</div>
+    </div>
+
+    <div class="section-title">관련 작품</div>
+    <div>
+      <a href="mal.html">말</a><br>
+      <a href="gwangya.html">광야</a><br>
+      <a href="cheonsusamje.html">춘수삼제</a>
+    </div>
+  </div>
+
+  <script>
+    function togglePanel() {
+      const panel = document.getElementById("infoPanel");
+      panel.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>
